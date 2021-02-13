@@ -3,29 +3,29 @@ name: Client Angular
 on: [push]
 
 jobs:
-  test:
-
+  ng-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     - name: Cache node modules
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Use Node.js 12.x
+    - name: Use Node.js 14
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 14
 
     - name: Install dependencies (npm ci)
       run: npm ci
       working-directory: ./client
+
     - name: Test (npm run test)
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       working-directory: ./client
