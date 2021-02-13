@@ -30,3 +30,26 @@ jobs:
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       working-directory: ./client
 
+  ng-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Install dependencies (npm ci)
+      run: npm ci
+
+    - name: Lint (npm run lint)
+      run: npm run lint
