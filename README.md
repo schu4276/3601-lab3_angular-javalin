@@ -37,11 +37,11 @@ example or documentation you're looking at just in case there's a mismatch that 
 As in the previous lab, you'll be using VS Code and GitKraken. Once you've all joined your
 group using GitHub classroom, you can clone your repository using the command line or GitKraken:
 
-- From the file menu, choose **Clone Repo**
-- Choose GitHub.com in the middle column (as the source location of your repo)
-- Browse to the location you'd like to put the local copy of this project repo
-- Select the correct repo from the list of repositories
-- Select **Clone the repo!**
+1. From the file menu, choose **Clone Repo**
+2. Choose GitHub.com in the middle column (as the source location of your repo)
+3. Browse to the location you'd like to put the local copy of this project repo
+4. Select the correct repo from the list of repositories
+5. Select **Clone the repo!**
 
 ### Open the project in VS Code
 
@@ -78,8 +78,9 @@ There are now more testing options! You can test the client, or the server or bo
 
 From the `client` directory:
 * `ng test` runs the client tests.
-* `ng test --code-coverage` runs the client tests and generates a coverage file you can find in your client directory `client/coverage/client/index.html`.
-Right click on `index.html` and select `Copy path` and paste it into your browser of choice. You can also drag and drop `index.html` onto the tab area of your browser and it will open it.
+* `ng test --code-coverage` runs the client tests and generates a coverage report
+  * It generates a coverage report you can find in your client directory `client/coverage/client/index.html`.
+  * Right click on `index.html` and select `Copy path` and paste it into your browser of choice. You can also drag and drop `index.html` onto the tab area of your browser and it will open it.
 
 ### Testing the server
 
