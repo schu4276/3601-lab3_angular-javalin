@@ -6,6 +6,8 @@
 
 - [Setup](#setup)
   - [Open the project in VS Code](#open-the-project-in-vs-code)
+  - [Installing the client dependencies](#installing-the-client-dependencies)
+  - [Enable ESLint in VS Code](#enable-eslint-in-vs-code)
 - [Running your project](#running-your-project)
 - [Testing and Continuous Integration](#testing-and-continuous-integration)
   - [Testing the client](#testing-the-client)
@@ -56,6 +58,24 @@ Don't worry if you don't get the dialog, it is probably because you already have
 
 Like in previous labs, click "Install All" to automatically install them.
 
+
+### Installing the client dependencies
+
+Before you start working you will need to install the dependencies for the client.
+
+1. Move into the `client` directory (`cd client`)
+2. Run `npm install`
+
+### Enable ESLint in VS Code
+
+Since this is the first time we will be using ESLint there is an additional step to make sure the VS Code extension is working in the project. 
+
+1. Hit `CTRL + SHIFT + P` (`⌘ + ⇧ + P` on Macs) to open the Command Palette. You can also find this by going to the "View" menu and clicking "Command Palette..."
+2. Start typing and select "ESlint: Manage Library Execution". That should open a dialog seen below.
+3. Click "Allow Everywhere"
+
+![image](https://user-images.githubusercontent.com/1300395/107996971-528b1400-6fa7-11eb-89bc-afc71747f820.png)
+
 ## Running your project
 
 - The **run** Gradle task (`./gradlew run` in the `server` directory) will still run your Javalin server, which is available at [`localhost:4567`](http://localhost:4567).
@@ -65,10 +85,10 @@ The major difference here is that the _client_ side of your project is,
 effectively, an entirely separate project from your Javalin server. We've included a full API
 for the todos, which you implemented in lab 2, so no need to copy your old project over.
 
-The first time you run your Angular project, you will need to run move into your `client` directory and run `npm install` so that all the dependencies managed by npm will be installed. Once you have successfully run `npm install`, in order to serve up the _client side_ of your project, you will type 
-`ng serve`. This will trigger the various tools in the
+Once you have successfully run `npm install`, in order to serve up the _client side_ of your project, you will run 
+`ng serve` (from the `client` directory as well). This will trigger the various tools in the
 client side portion of the project to build and host your client side
-application on their own little web-server, available by default at ``localhost:4200``. If your server is running, you will be able to see data for users if you navigate to the right place in the project.
+application on their own little web-server, available by default at [`localhost:4200`](http://localhost:4200). If your server is running, you will be able to see data for users if you navigate to the right place in the project.
 
 ## Testing and Continuous Integration
 
