@@ -164,3 +164,7 @@ $RECYCLE.BIN/
 # Aditional custom ignores
 
 .settings/
+
+node_modules
+package-lock.json
+package.json
