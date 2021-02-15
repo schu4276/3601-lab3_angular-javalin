@@ -1,8 +1,19 @@
-# CSCI 3601 Lab #3 - Angular and Spark Lab
+# CSCI 3601 Lab #3 - Angular and Spark Lab <!-- omit in toc -->
 
 [![Server Build Status](../../workflows/Server%20Java/badge.svg?branch=master)](../../actions?query=workflow%3A"Server+Java")
 [![Client Build Status](../../workflows/Client%20Angular/badge.svg?branch=master)](../../actions?query=workflow%3A"Client+Angular")
 [![End to End Build Status](../../workflows/End-to-End/badge.svg?branch=master)](../../actions?query=workflow%3AEnd-to-End)
+
+- [Setup](#setup)
+- [Running your project](#running-your-project)
+- [Testing and Continuous Integration](#testing-and-continuous-integration)
+  - [Testing the client](#testing-the-client)
+  - [Testing the server](#testing-the-server)
+  - [End to end testing with Cypress](#end-to-end-testing-with-cypress)
+  - [GitHub Actions](#github-actions)
+- [Resources](#resources)
+  - [Angular](#angular)
+  - [Cypress (end-to-end testing)](#cypress-end-to-end-testing)
 
 During this lab, you will use a ToDo API like you created in the previous lab
 by building a basic client-side application using Angular. This will enable you
@@ -10,11 +21,11 @@ to better handle user input and display data returned from the server. As always
 you'll be expected to make good use of the version control (e.g., branching for features and merging changes to the master branch as appropriate) and project management 
 tools available to you: write good commit messages, test things, document issues, etc.
 
-Your specific tasks for this lab can be found in the [LABTASKS.md][labtasks]
+Your specific tasks for this lab can be found in the [LABTASKS.md](LABTASKS.md)
 file in this repository.
 
 >:warning: One thing to keep in mind is that the Angular developers provide two
-major updates to Angular each year. This lab is built using Angular 9. Pay attention to
+major updates to Angular each year. This lab is built using Angular 11. Pay attention to
 the version of Angular being used in examples and on-line documentation that you find. Most
 of the time, it won't matter very much, but there are times when something you find 
 doesn't match what we're doing. If things seem odd, look at the versions for the
@@ -34,19 +45,15 @@ group using GitHub classroom, you can clone your repository using the command li
 
 ## Running your project
 
-Now that the structure of the project is a little different, the way we run the project
-is different too.
-
-- The familiar **run** Gradle task will still run your Javalin server.
-(which is available at ``localhost:4567``)
-- The **build** task (or its alias **buildExecutable**) will still _build_ the entire project, but not run it.
+- The **run** Gradle task (`./gradlew run` in the `server` directory) will still run your Javalin server, which is available at [`localhost:4567`](http://localhost:4567).
+- The **build** task will still _build_ the server, but not run it.
 
 The major difference here is that the _client_ side of your project is,
 effectively, an entirely separate project from your Javalin server. We've included a full API
-for the ToDo's, which you implemented in lab 2, so no need to copy your old project over.
+for the todos, which you implemented in lab 2, so no need to copy your old project over.
 
 The first time you run your Angular project, you will need to run move into your `client` directory and run `npm install` so that all the dependencies managed by npm will be installed. Once you have successfully run `npm install`, in order to serve up the _client side_ of your project, you will type 
-**ng serve**. This will trigger the various tools in the
+`ng serve`. This will trigger the various tools in the
 client side portion of the project to build and host your client side
 application on their own little web-server, available by default at ``localhost:4200``. If your server is running, you will be able to see data for users if you navigate to the right place in the project.
 
@@ -54,35 +61,50 @@ application on their own little web-server, available by default at ``localhost:
 
 There are now more testing options! You can test the client, or the server or both.
 
-Testing client:
+### Testing the client
 
-* `ng test` runs the client tests once.
+From the `client` directory:
+* `ng test` runs the client tests.
 * `ng test --code-coverage` runs the client tests and generates a coverage file you can find in your client directory `client/coverage/client/index.html`.
-Right click on `index.html` and select `Copy path` and paste it into your browser of choice. For Chrome users, you can drag and drop `index.html` onto the tab area of Chrome and it will open it.
-* `npm run e2e` runs end to end tests. What are e2e tests? They are tests that run the real application and simulate user behavior. They assert that the app is running as expected. NOTE: The server (`./gradlew run`) needs to be actively executing for these tests to work!
+Right click on `index.html` and select `Copy path` and paste it into your browser of choice. You can also drag and drop `index.html` onto the tab area of your browser and it will open it.
 
-There are GitHub Actions set up in your repo for each of the three checks: JUnit tests for the server, Karma tests for the client, and Protractor tests for end-to-end testing. There are badges above that show the status of these checks on the master branch.
+### Testing the server
+
+From the `server` directory:
+* `./gradlew test` runs the server tests once.
+  * It generates a report you can find in `server/build/reports/tests/test/index.html`.
+* `./gradlew test jacocoTestReport` runs the server tests once and creates a coverage report
+  * It generates a coverage report you can find in `server/build/jacocoHtml/index.html` in addition to the regular report generated by the `test` task.
+
+### End to end testing with Cypress
+
+End to end (E2E) testing involves the whole software stack rather than one part of it. Our E2E tests look at the behavior of both the client and server and how they interact by simulating what a real user would do with it.
+
+We use [Cypress](https://www.cypress.io/) for our end-to-end tests. There are a few ways to run the E2E tests. They area all started from the `client` directory and require the server be running at the same time (`./gradlew run` in the `server` directory).
+
+* `ng e2e` both builds and serves the client and runs through all the Cypress end-to-end tests once.
+* `ng e2e --watch` builds and serves the client but just opens Cypress for you to be able to run the tests you want without closing automatically.
+  * This is the same as running `ng serve` and `npm run cy:open` (or `npx cypress open`) at the same time.
+
+### GitHub Actions
+
+There are GitHub Actions set up in your repo for each of the three checks: JUnit tests for the server, Karma tests for the client, and Cypress tests for end-to-end testing. There are badges above that show the status of these checks on the master branch.
 
 ## Resources
 
-- [Angular tutorial][angular-tutorial]
-- [Angular testing (Karma)][angular-karma]
-- [Angular Tour of Heroes tutorial][tour-of-heroes]
-- [End-to-end testing (Protractor)][protractor]
-- [End to end testing (e2e) with protractor and Angular CLI][e2e-testing]
-- [What are environments in Angular CLI?][environments]
-- [Angular CLI commands][angular-cli-commands]
-- [HTTP Status Codes][status-codes]
+### Angular
 
+- [Angular Testing (Karma)](https://angular.io/guide/testing)
+- [Angular Routing](https://angular.io/guide/router)
+- [Angular Forms](https://angular.io/guide/forms-overview)
+- [Angular Material](https://material.angular.io/)
+- [What are environments in Angular](https://angular.io/guide/build#configuring-application-environments)
+- [Angular CLI](https://angular.io/cli)
 
-[angular-tutorial]: https://angular.io/start
-[angular-karma]:https://angular.io/guide/testing
-[tour-of-heroes]: https://angular.io/tutorial
-[protractor]: https://www.protractortest.org/#/toc
-[e2e-testing]: https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
-[environments]: https://angular.io/guide/build#configuring-application-environments
-[labtasks]: LABTASKS.md
-[angular-cli-commands]: https://angular.io/cli
-[status-codes]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+### Cypress (end-to-end testing)
+
+- [Cypress Docs](https://docs.cypress.io/)
+- [Cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
+
 
 
