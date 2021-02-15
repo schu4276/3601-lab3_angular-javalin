@@ -10,7 +10,6 @@
       "typescript",
       "html"
     ],
-    "tslint.enable": false,
     "cSpell.words": [
         "CSCI",
         "sidenav",
