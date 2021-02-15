@@ -1,6 +1,16 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.server.launchMode": "Standard",
+    "eslint.workingDirectories": [ "./client" ],
+    "eslint.options": {
+      "extensions": [".ts", ".html"]
+    },
+    "eslint.validate": [
+      "javascript",
+      "typescript",
+      "html"
+    ],
+    "tslint.enable": false,
     "cSpell.words": [
         "CSCI",
         "sidenav",
