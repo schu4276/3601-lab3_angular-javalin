@@ -76,6 +76,6 @@ jacocoTestReport {
 }
 
 tasks.withType(JavaCompile) {
-  // All of our source files are written in UTF-8
+  // All of our source files are written in UTF-8.
   options.encoding = 'UTF-8'
 }
