@@ -117,9 +117,9 @@ There are GitHub Actions set up in your repo for each of the three checks: JUnit
 
 ### Angular
 
-- [Angular Testing (Karma)](https://angular.io/guide/testing)
-- [Angular Routing](https://angular.io/guide/router)
-- [Angular Forms](https://angular.io/guide/forms-overview)
+- [Testing (Karma)](https://angular.io/guide/testing)
+- [Routing](https://angular.io/guide/router)
+- [Forms](https://angular.io/guide/forms-overview)
 - [Angular Material](https://material.angular.io/)
 - [What are environments in Angular](https://angular.io/guide/build#configuring-application-environments)
 - [Angular CLI](https://angular.io/cli)
@@ -127,7 +127,8 @@ There are GitHub Actions set up in your repo for each of the three checks: JUnit
 ### Cypress (end-to-end testing)
 
 - [Cypress Docs](https://docs.cypress.io/)
-- [Cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
-
+- [Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
+- [Introduction to Cypress](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Cypress-Can-Be-Simple-Sometimes)
+- [Interacting with Elements](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html#Actionability)
 
 
