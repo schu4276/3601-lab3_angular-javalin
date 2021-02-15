@@ -16,7 +16,7 @@
   - [Angular](#angular)
   - [Cypress (end-to-end testing)](#cypress-end-to-end-testing)
 
-During this lab, you will use a ToDo API like you created in the previous lab
+During this lab, you will use a todo API like you created in the previous lab
 by building a basic client-side application using Angular. This will enable you
 to better handle user input and display data returned from the server. As always, 
 you'll be expected to make good use of the version control (e.g., branching for features and merging changes to the master branch as appropriate) and project management 
@@ -42,7 +42,7 @@ group using GitHub classroom, you can clone your repository using the command li
 - Browse to the location you'd like to put the local copy of this project repo
 - Select the correct repo from the list of repositories
 - Select **Clone the repo!**
-- 
+
 ### Open the project in VS Code
 
 Launch Visual Studio Code, and then choose `File -> Open Folder…`. Navigate to your clone
