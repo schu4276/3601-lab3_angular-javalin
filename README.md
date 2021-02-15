@@ -5,6 +5,7 @@
 [![End to End Build Status](../../workflows/End-to-End/badge.svg?branch=master)](../../actions?query=workflow%3AEnd-to-End)
 
 - [Setup](#setup)
+  - [Open the project in VS Code](#open-the-project-in-vs-code)
 - [Running your project](#running-your-project)
 - [Testing and Continuous Integration](#testing-and-continuous-integration)
   - [Testing the client](#testing-the-client)
@@ -41,7 +42,19 @@ group using GitHub classroom, you can clone your repository using the command li
 - Browse to the location you'd like to put the local copy of this project repo
 - Select the correct repo from the list of repositories
 - Select **Clone the repo!**
+- 
+### Open the project in VS Code
 
+Launch Visual Studio Code, and then choose `File -> Open Folder…`. Navigate to your clone
+of the repo and choose `Open`.
+
+You may see a dialog that looks like this if you don't already have the recommended extensions:
+
+![Dialog suggesting installation of recommended extensions](https://user-images.githubusercontent.com/1300395/72710961-bf767500-3b2d-11ea-8ea4-fbbd39c78da5.png)
+
+Don't worry if you don't get the dialog, it is probably because you already have them all installed.
+
+Like in previous labs, click "Install All" to automatically install them.
 
 ## Running your project
 
@@ -84,7 +97,17 @@ We use [Cypress](https://www.cypress.io/) for our end-to-end tests. There are a 
 
 * `ng e2e` both builds and serves the client and runs through all the Cypress end-to-end tests once.
 * `ng e2e --watch` builds and serves the client but just opens Cypress for you to be able to run the tests you want without closing automatically.
-  * This is the same as running `ng serve` and `npm run cy:open` (or `npx cypress open`) at the same time.
+  * This is the same as running `ng serve` and `npm run cy:open` (or `npx cypress open`) at the same time. If you are already running `ng serve` it will be easier to do this rather than closing it and running `ng e2e`.
+
+The main page of Cypress looks like this: 
+
+![image](https://user-images.githubusercontent.com/1300395/107994604-9af40300-6fa2-11eb-9caf-35d804281929.png)
+
+You can click on any of the integration test files to run their tests or run them all. When you run a set of tests you will 
+
+![image](https://user-images.githubusercontent.com/1300395/107994642-acd5a600-6fa2-11eb-8b88-1f2879e82848.png)
+
+There are a lot of neat things you can do here like inspect each test and find which selectors to use in the tests you are writing. We encourage you to look through some of the Cypress documentation below.
 
 ### GitHub Actions
 
