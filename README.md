@@ -68,13 +68,20 @@ Before you start working you will need to install the dependencies for the clien
 
 ### Enable ESLint in VS Code
 
-Since this is the first time we will be using ESLint there is an additional step to make sure the VS Code extension is working in the project. 
+Since this is the first time we will be using ESLint there is an additional step to make sure the VS Code extension is working in the project. When you first open a TypeScript file you will see at the bottom right that ESLint is disabled. 
 
-1. Hit `CTRL + SHIFT + P` (`⌘ + ⇧ + P` on Macs) to open the Command Palette. You can also find this by going to the "View" menu and clicking "Command Palette..."
-2. Start typing and select "ESlint: Manage Library Execution". That should open a dialog seen below.
-3. Click "Allow Everywhere"
+![image](https://user-images.githubusercontent.com/1300395/107999308-bc59ec80-6fac-11eb-9784-75a471a50aa4.png)
+
+
+Click the red "ESLINT" to open this dialog:
 
 ![image](https://user-images.githubusercontent.com/1300395/107996971-528b1400-6fa7-11eb-89bc-afc71747f820.png)
+
+Click "Allow Everywhere" to enable ESLint.
+
+You can also open this dialog with the following steps:
+1. Hit `CTRL + SHIFT + P` (`⌘ + ⇧ + P` on Macs) to open the Command Palette. You can also find this by going to the "View" menu and clicking "Command Palette..."
+2. Start typing and select "ESlint: Manage Library Execution". That should open a dialog seen above.
 
 ## Running your project
 
